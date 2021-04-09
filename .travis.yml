@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t amarbelkhede/docker-react -f dockerfile.dev .
+
+script:
+  - docker run amarbelkhede/docker-react npm run test -- --coverage
